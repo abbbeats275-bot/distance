@@ -1,0 +1,261 @@
+<!DOCTYPE html>
+<html lang="ru">
+
+<head>
+    <meta charset="UTF-8">
+
+    <meta name="viewport"
+          content="width=device-width, initial-scale=1.0">
+
+    <title>DISTANCE.exe</title>
+
+    <link rel="stylesheet"
+          href="{{ url_for('static', filename='style.css') }}">
+</head>
+
+<body>
+
+    <!-- ПЕРВЫЙ ЭКРАН -->
+
+    <div class="container" id="welcome">
+
+        <div class="title">
+            DISTANCE.exe
+        </div>
+
+        <div class="text">
+
+            <div>initializing...</div>
+            <div>checking connection...</div>
+            <div>✓ connected</div>
+
+            <br>
+
+            <div id="typingText"></div>
+
+        </div>
+
+        <button class="start-button"
+                onclick="startExperience()">
+            НАЧАТЬ
+        </button>
+
+    </div>
+
+
+    <div class="container hidden" id="memory">
+
+    <div class="title">
+        наши воспоминания
+    </div>
+
+    <div class="text">
+        нажми на одну из звёзд.
+    </div>
+
+<div class="stars">
+
+    <div class="connection connection1"></div>
+    <div class="connection connection2"></div>
+    <div class="connection connection3"></div>
+    <div class="connection connection4"></div>
+    <div class="connection connection5"></div>
+
+    <button class="star star1"
+            onclick="openMemory(1)">
+        ✦
+    </button>
+
+    <button class="star star2"
+            onclick="openMemory(2)">
+        ✦
+    </button>
+
+    <button class="star star3"
+            onclick="openMemory(3)">
+        ✦
+    </button>
+
+    <button class="star star4"
+            onclick="openMemory(4)">
+        ✦
+    </button>
+
+    <button class="star star5"
+            onclick="openMemory(5)">
+        ✦
+    </button>
+
+    <button class="star future-star"
+            onclick="openFuture()">
+        ?
+    </button>
+
+</div>
+
+</div>
+
+
+<!-- ОКНО ВОСПОМИНАНИЯ -->
+
+<div class="memory-window hidden" id="memoryWindow">
+
+    <div class="memory-card">
+
+        <button class="close-button"
+        onclick="closeMemory()">
+    ×
+</button>
+
+<button class="back-button"
+        onclick="closeMemory()">
+    вернуться к звёздам
+</button>
+
+        <img id="memoryImage"
+             src=""
+             alt="Наше воспоминание">
+
+        <div class="memory-date"
+             id="memoryDate">
+        </div>
+
+        <div class="memory-title"
+             id="memoryTitle">
+        </div>
+
+        <div class="memory-description"
+             id="memoryDescription">
+        </div>
+
+    </div>
+
+</div>
+
+<div class="future-window hidden"
+     id="futureWindow">
+
+    <div class="future-card">
+
+        <button class="close-button"
+                onclick="closeFuture()">
+            ×
+        </button>
+
+        <div class="future-symbol">
+            ?
+        </div>
+
+        <div class="future-title">
+            это воспоминание ещё не существует.
+        </div>
+
+        <div class="future-text">
+            потому что мы ещё не прожили его.
+        </div>
+
+        <div class="future-text">
+            но когда-нибудь эта звезда
+            тоже получит свою историю.
+        </div>
+
+        <div class="countdown" id="countdown">
+
+    <div class="time-block">
+        <div class="time-number" id="days">00</div>
+        <div class="time-label">ДНЕЙ</div>
+    </div>
+
+    <div class="time-block">
+        <div class="time-number" id="hours">00</div>
+        <div class="time-label">ЧАСОВ</div>
+    </div>
+
+    <div class="time-block">
+        <div class="time-number" id="minutes">00</div>
+        <div class="time-label">МИНУТ</div>
+    </div>
+
+    <div class="time-block">
+        <div class="time-number" id="seconds">00</div>
+        <div class="time-label">СЕКУНД</div>
+    </div>
+
+</div>
+
+<div class="meeting-message hidden"
+     id="meetingMessage">
+
+    эта звезда скоро получит
+    новое воспоминание.
+
+    <br><br>
+
+    31.08.2026 ❤️
+
+</div>
+
+        <button class="final-button"
+                onclick="openFinal()">
+            открыть последнее
+        </button>
+
+        <button class="back-button"
+                onclick="closeFuture()">
+            вернуться к звёздам
+        </button>
+
+    </div>
+
+</div>
+
+<div class="final-window hidden"
+     id="finalWindow">
+
+    <div class="final-card">
+
+        <div class="final-symbol">
+            ♥
+        </div>
+
+        <div class="final-title">
+            connection established.
+        </div>
+
+        <div class="final-text">
+
+            расстояние:
+            временное.
+
+            <br><br>
+
+            воспоминания:
+            сохранены.
+
+            <br><br>
+
+            главное:
+            осталось.
+
+        </div>
+
+        <div class="final-message">
+            я просто хотел напомнить тебе,
+            что даже когда между нами километры —
+            ты всё равно рядом со мной.
+        </div>
+
+        <button class="back-button"
+                onclick="closeFinal()">
+            вернуться
+        </button>
+
+    </div>
+
+</div>
+
+    <script src="{{ url_for('static', filename='script.js') }}"></script>
+
+</body>
+
+</html>
